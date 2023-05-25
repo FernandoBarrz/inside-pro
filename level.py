@@ -3,7 +3,7 @@ from lib.funcs import *
 from lib.ui import Text
 from entities import *
 
-class Level:
+class Nivel:
 	def __init__(self, level_file, player, title=''):
 		self.is_complete = False
 		self.level_title = Text(title, FONT_S, position=(WINDOW_CENTER[0], 32))
@@ -50,12 +50,7 @@ class Level:
 
 		self.blocks.draw(window)
 		self.player.draw(window)
-
-		# for rl in self.objects.values():
-		# 	for r in rl:
-		# 		if isinstance(r, pygame.Rect):pygame.draw.rect(window, 'white', r, 1)
-		# 		else: pygame.draw.rect(window, 'white', r.rect, 1)
-				
+		
 		window.blit(self.level_title.image, self.level_title.rect.topleft)
 
 	def dispose(self):

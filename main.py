@@ -8,7 +8,7 @@ class Game:
 		self.clock = pygame.time.Clock()
 		pygame.display.set_caption(TITLE)
 		self.window = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-		self.screen = screens.MenuScreen(self)
+		self.screen = screens.PantallaMenu(self)
 		self.music = pygame.mixer.Sound('./src/audios/music.ogg')
 		self.music.set_volume(.75)
 		self.music.play(-1)
@@ -18,14 +18,14 @@ class Game:
 			INPUT.reset()
 			for event in pygame.event.get():
 				if event.type == pygame.QUIT:
-					if isinstance(self.screen, screens.LevelScreen):
-						save_game({'level_number': self.screen.level_number}, './src/save.txt')
+					if isinstance(self.screen, screens.PantallaNivel):
+						save_game({'level_number': self.screen.numero_nivel}, './src/save.txt')
 					return
 				INPUT.process_input(event)
 
 			self.window.fill(BG_COLOR)
-			self.screen.update()
-			self.screen.draw(self.window)
+			self.screen.actualizar()
+			self.screen.dibujar(self.window)
 			self.window.blit(SCREEN_FADER, (0, 0))
 			pygame.display.update()
 			self.clock.tick(FPS)

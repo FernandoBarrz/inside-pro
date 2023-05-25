@@ -5,8 +5,8 @@ from lib.inputhandler import InputHandler
 
 pygame.init()
 
-TITLE = 'limp'
-TILE_SIZE = 16
+TITLE = 'INSIDE'
+TILE_SIZE = 20
 GRID_SIZE = 32
 
 WINDOW_WIDTH = 1024
@@ -17,14 +17,11 @@ WINDOW_CENTER = tuple([x//2 for x in WINDOW_SIZE])
 FPS = 60
 
 
-BG_COLOR = '#392830'
+BG_COLOR = '#20262E'
 
-FONT_L = load_font('./src/fonts/ThaleahFat.ttf', 96)
-FONT_M = load_font('./src/fonts/ThaleahFat.ttf', 64)
-FONT_S = load_font('./src/fonts/ThaleahFat.ttf', 32)
-
-# ICON = pygame.image.load('./scr/image/FNF.ico')
-
+FONT_L = load_font('./src/fonts/Roboto.ttf', 96)
+FONT_M = load_font('./src/fonts/Roboto.ttf', 64)
+FONT_S = load_font('./src/fonts/Roboto.ttf', 32)
 
 SCREEN_FADER = load_surface(WINDOW_SIZE)
 SCREEN_FADER.fill(BG_COLOR)

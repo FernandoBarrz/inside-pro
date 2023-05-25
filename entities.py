@@ -2,14 +2,11 @@ from config import *
 from lib.ui import Text
 from lib.animation import AnimatedSprite
 
-class Player(AnimatedSprite):
+class Jugador(AnimatedSprite):
 	def __init__(self):
 		super().__init__()
-		self.load_frames('idle', './src/graphics/player/idle/', .1, 2)
-		self.load_frames('run', './src/graphics/player/run/', .15, 2)
-		self.load_frames('jump', './src/graphics/player/jump/', .2, 2, False)
-		self.load_frames('fall', './src/graphics/player/fall/', .2, 2, False)
-		self.load_frames('dead', './src/graphics/player/dead/', .2, 2, False)
+		self.load_frames('idle', './src/graphics/player/idle/', .1, 2, False)
+
 		self.set_anim('idle')
 		self.sound = {
 			'jump': pygame.mixer.Sound('./src/audios/jump.ogg'),
@@ -43,13 +40,13 @@ class Player(AnimatedSprite):
 				if self.velocity.x == 0:
 					self.set_anim('idle')
 				else:
-					self.set_anim('run')
+					pass
 			elif self.velocity.y < 0:
-				self.set_anim('jump')
+				pass
 			elif self.velocity.y > 0:
-				self.set_anim('fall')
+				pass
 		else:
-			self.set_anim('dead')
+			pass
 		self.play_anim()
 
 	def horizontal_move(self):
@@ -133,7 +130,7 @@ class Player(AnimatedSprite):
 			self.jump_count_img.rect.y + self.body.top - 20
 		))
 		window.blit(self.image, (self.body.x - 39, self.body.y - self.body.height))
-		# pygame.draw.rect(window, 'green', self.body, 1)
+		
 
 
 class Block(pygame.sprite.Sprite):
